@@ -1,0 +1,20 @@
+name:                adventofcode2018
+version:             0.1.0.0
+#synopsis:
+#description:
+homepage:            https://github.com/jvanbruegge/adventofcode2018#readme
+license:             MIT
+author:              Jan van Brügge
+maintainer:          supermanitu@gmail.com
+copyright:           2018 Jan van Brügge
+category:            Web
+extra-source-files:
+- README.md
+
+dependencies:
+  - base >= 4.7 && < 5
+
+executables:
+  adventofcode2018:
+    source-dirs:      .
+    main:             Main.hs
