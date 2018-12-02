@@ -12,7 +12,8 @@ solve = uncurry (*) . bimap sum sum . unzip . fmap (count 2 &&& count 3) . words
 
 solve2 :: String -> Maybe String
 solve2 = listToMaybe <=< sequenceA . filter isJust . fmap checkSimilar . cartesian . words
-    where cartesian xs = [(x, y) | x <- xs, y <- xs, x /= y]
+    where cartesian xs = let l = zip xs [0..]
+                         in [(x, y) | (x, i) <- l, y <- fst <$> takeWhile ((< i) . snd) l]
 
 checkSimilar :: (String, String) -> Maybe String
 checkSimilar (a, b) = go False a b
